@@ -72,8 +72,7 @@ NSString *kCellIdentifier = @"imageCell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	//static int increase;
-	return CGSizeMake(180,100);// CGSizeMake(180-((increase%3)*10), 80+(increase*3));
+	return CGSizeMake(180,100);
 }
 
 #pragma mark - Gesture recognizers

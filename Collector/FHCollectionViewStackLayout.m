@@ -35,7 +35,6 @@
 		for (NSInteger row=0; row<[self.collectionView numberOfItemsInSection:section]; row++) {
 			NSIndexPath *indexPath = [NSIndexPath indexPathForItem:row inSection:section];
 			UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
-			//UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
 
 			if (row==0)
 			{
@@ -49,7 +48,6 @@
 			}
 			float angle = arc4random_uniform(10);
 			angle = (angle - 5.)*M_PI/180;
-			//attributes.transform3D = CATransform3DMakeScale(angle/10, angle/10, 1.0);
 			attributes.transform3D = CATransform3DMakeRotation(angle, 0, 0, 1);
 			[attributesInSection addObject:attributes];
 
@@ -71,7 +69,6 @@
 	attributes.size = CGSizeMake(180, 100);
 	return attributes;
 	
-//	return _layoutAttributes[indexPath.section][indexPath.row];
 	
 
 
@@ -82,13 +79,11 @@
 - (NSArray*)layoutAttributesForElementsInRect:(CGRect)rect
 {
 	
-	//NSArray *attributesInRect = [super layoutAttributesForElementsInRect:rect];
 	
 	NSMutableArray *attributes = [NSMutableArray array];
 
 	NSPredicate *filterPredicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject,NSDictionary* bindings) {
         
-       // UICollectionViewLayoutAttributes* layoutAttributes = evaluatedObject;
         CGRect frame = [(UICollectionViewLayoutAttributes*)evaluatedObject frame];
         return CGRectIntersectsRect(frame,rect);
     }];
